@@ -1,7 +1,9 @@
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
+from app.routers.auth import router as auth_router
+from app.services.role_service import seed_roles
+from app.core.database import SessionLocal
 from app.core.config import settings
 from app.core.database import Base, engine
 from app import models
@@ -22,7 +24,16 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
+app.include_router(auth_router)
 
+
+@app.on_event("startup")
+def initialize_roles():
+    db = SessionLocal()
+    try:
+        seed_roles(db)
+    finally:
+        db.close()
 
 @app.get("/")
 def root():

@@ -8,7 +8,8 @@ import {
 } from "react-router-dom";
 import api from "./services/api";
 import "./App.css";
-
+import Register from "./Register";
+import Login from "./Login";
 function Navbar() {
   return (
     <nav className="navbar">
@@ -156,8 +157,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );

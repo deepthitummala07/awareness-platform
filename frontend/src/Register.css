@@ -1,0 +1,179 @@
+
+.register-page {
+  min-height: 80vh;
+  padding: 48px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #f4f7fb;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 520px;
+  padding: 32px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(20, 40, 80, 0.09);
+}
+
+.register-card h1 {
+  margin: 0 0 8px;
+  color: #182b49;
+  font-size: 28px;
+}
+
+.register-subtitle {
+  margin: 0 0 24px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.register-card label {
+  display: block;
+  margin: 16px 0 7px;
+  font-weight: 600;
+  color: #25354d;
+}
+
+.register-card input,
+.register-card select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+  background: white;
+}
+
+.register-card input:focus,
+.register-card select:focus {
+  outline: 2px solid #93c5fd;
+  border-color: #2563eb;
+}
+
+.register-card small {
+  display: block;
+  margin-top: 6px;
+  color: #c62828;
+  line-height: 1.4;
+}
+
+.form-error {
+  padding: 12px;
+  border-radius: 8px;
+  background: #fef2f2;
+  color: #b91c1c;
+  margin-bottom: 16px;
+  overflow-wrap: anywhere;
+}
+
+.register-card button {
+  width: 100%;
+  margin-top: 24px;
+  padding: 13px;
+  border: 0;
+  border-radius: 8px;
+  background: #2457d6;
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.register-card button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.password-strength {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.password-strength.weak {
+  color: #dc2626;
+}
+
+.password-strength.medium {
+  color: #b45309;
+}
+
+.password-strength.strong {
+  color: #15803d;
+}
+
+.register-loading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.spinner {
+  width: 15px;
+  height: 15px;
+  border: 2px solid #ffffff80;
+  border-top-color: white;
+  border-radius: 50%;
+  animation: register-spin 0.7s linear infinite;
+}
+
+@keyframes register-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.register-login-link {
+  margin: 20px 0 0;
+  text-align: center;
+  color: #64748b;
+}
+
+.register-login-link a {
+  color: #2457d6;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .register-page {
+    padding: 24px 12px;
+  }
+
+  .register-card {
+    padding: 22px 18px;
+  }
+
+  .register-card h1 {
+    font-size: 24px;
+  }
+}
+
+.registration-success {
+  padding: 12px;
+  margin: 16px 0;
+  border-radius: 8px;
+  background: #ecfdf5;
+  color: #166534;
+  line-height: 1.5;
+}
+
+.register-card input,
+.register-card select {
+  color: #1f2937;
+  background-color: #ffffff;
+}
+
+.register-card input::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+.register-card input:focus,
+.register-card select:focus {
+  color: #1f2937;
+  background-color: #ffffff;
+}
