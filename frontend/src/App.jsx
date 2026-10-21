@@ -1,4 +1,11 @@
-
+import ProtectedRoute from "./ProtectedRoute";
+import DashboardLayout from "./DashboardLayout";
+import DashboardHome from "./DashboardHome";
+import Audience from "./pages/Audience";
+import Segments from "./pages/Segments";
+import Campaigns from "./pages/Campaigns";
+import UserManagement from "./UserManagement";
+import Templates from "./pages/Templates";
 import { useEffect } from "react";
 import {
   BrowserRouter,
@@ -47,28 +54,40 @@ function LandingPage() {
       });
   }, []);
 
-  const features = [
-    {
-      title: "Multilingual Communication",
-      description:
-        "Deliver public awareness messages in multiple languages.",
-    },
-    {
-      title: "AI-Powered Content",
-      description:
-        "Support the creation of clear and accessible awareness content.",
-    },
-    {
-      title: "Multi-Channel Delivery",
-      description:
-        "Plan communication across supported messaging channels.",
-    },
-    {
-      title: "Campaign Analytics",
-      description:
-        "Prepare to monitor message delivery and campaign performance.",
-    },
-  ];
+ 
+const features = [
+  {
+    title: "Multilingual Communication",
+    description:
+      "Break language barriers by delivering public awareness messages in multiple Indian languages, making essential information accessible to every community.",
+  },
+  {
+    title: "AI-Powered Content Creation",
+    description:
+      "Create clear, engaging, and audience-friendly awareness content with AI assistance to communicate important information effectively.",
+  },
+  {
+    title: "Multi-Channel Campaigns",
+    description:
+      "Manage awareness campaigns across supported communication channels through one unified platform.",
+  },
+  {
+    title: "Audience Segmentation",
+    description:
+      "Organize audiences by language, location, occupation, and other attributes to deliver more relevant awareness messages.",
+  },
+  {
+    title: "Smart Campaign Management",
+    description:
+      "Create, organize, prioritize, and manage awareness campaigns, including high-priority emergency communications.",
+  },
+  {
+    title: "Insights & Feedback",
+    description:
+      "Use campaign statistics and audience feedback to understand communication outcomes and improve future awareness initiatives.",
+  },
+];
+
 
   const steps = [
     "Create an awareness campaign",
@@ -152,6 +171,7 @@ function RegisterPage() {
   );
 }
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -159,9 +179,21 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard" element={<DashboardLayout />}>
+            <Route index element={<DashboardHome />} />
+            <Route path="users" element={<UserManagement />} />
+            <Route path="audience" element={<Audience />} />
+            <Route path="segments" element={<Segments />} />
+            <Route path="campaigns" element={<Campaigns />} />
+            <Route path="templates" element={<Templates />} />
+          </Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
 }
 
 export default App;
+

@@ -1,4 +1,6 @@
-
+from app.routers import audience
+from app.routers import campaigns
+from app.routers import templates
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers.auth import router as auth_router
@@ -7,7 +9,8 @@ from app.core.database import SessionLocal
 from app.core.config import settings
 from app.core.database import Base, engine
 from app import models
-
+from app.routers import segments
+from app.routers.admin import router as admin_router
 app = FastAPI(
     title=settings.APP_NAME,
     description="Backend API for multilingual public awareness and mass communication.",
@@ -25,8 +28,11 @@ app.add_middleware(
     allow_headers=["*"]
 )
 app.include_router(auth_router)
-
-
+app.include_router(admin_router)
+app.include_router(audience.router)
+app.include_router(segments.router)
+app.include_router(campaigns.router)
+app.include_router(templates.router)
 @app.on_event("startup")
 def initialize_roles():
     db = SessionLocal()

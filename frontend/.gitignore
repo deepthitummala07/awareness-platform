@@ -22,3 +22,38 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Python virtual environments and cache
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Node dependencies and build output
+node_modules/
+frontend/dist/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Local environment files
+.DS_Store
+Thumbs.db
+# Frontend dependencies and build
+node_modules/
+frontend/dist/
+
+# Test cache
+.pytest_cache/
+
+# Local/private test data (uncomment if these contain real data)
+# backend/new.csv
+# backend/sample_audience.csv
+# backend/sample_audience.xlsx

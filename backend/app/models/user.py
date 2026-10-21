@@ -1,5 +1,5 @@
 
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Boolean
 from sqlalchemy.sql import func
 
 from app.core.database import Base
@@ -15,4 +15,5 @@ class User(Base):
     organization_name = Column(String(150), nullable=False)
     password_hash = Column(String(255), nullable=False)
     role_id = Column(Integer, ForeignKey("roles.id"), nullable=False)
+    is_active = Column(Boolean, nullable=False, default=True,server_default="1")
     created_at = Column(DateTime(timezone=True), server_default=func.now())

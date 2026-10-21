@@ -1,0 +1,3 @@
+name,email,phone,age,gender,city,state,language,occupation,organization_department,preferred_channel,consent_status,segment_id
+Bulk Save Test,bulk.save.test@example.com,9000000002,24,Other,Hyderabad,Telangana,Telugu,Student,Education,SMS,true,
+Duplicate Test,bulk.duplicate.test@example.com,9000000001,25,Other,Hyderabad,Telangana,Telugu,Student,Education,Email,true,
